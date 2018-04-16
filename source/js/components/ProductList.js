@@ -15,7 +15,7 @@ export default class ProductList extends React.Component {
     super(props, context);
 
     this.state = {
-      
+      pictures: []
     }
   }
 
@@ -25,6 +25,24 @@ export default class ProductList extends React.Component {
 
 
   componentDidMount(){
+    fetch('https://raw.githubusercontent.com/BookingBoss/reactjs-test/master/productsData.json')
+    .then(results => {
+      return results.json();
+    }).then(data => {
+      let pictures = data.map((pic, index) => {
+        if(index < 25) {
+          return (
+            <div className="o-col--3" key={pic.id}>
+              <div className="c-products--thumb">
+                <img className="img-responsive" src={pic.product_image} />
+              </div>
+            </div>
+          )
+        }
+      })
+      this.setState({pictures: pictures});
+      console.log("state", this.state.pictures);
+    })
   }
 
   _sampleFunction = () => {
@@ -34,27 +52,10 @@ export default class ProductList extends React.Component {
   render() {
 
     return (
-      <div className="c-header">
+      <div className="c-products">
         <div className="o-container">
           <div className="o-row">
-            <div className="o-col--12">
-              <h5>All products</h5>
-            </div>
-          </div>
-
-          <div className="o-row">
-            <div className="o-col--6">
-              24 products
-            </div>
-            <div className="o-col--6">
-              <div className="u-text--right">
-                <select>
-                  <option value="8">8 per page</option>
-                  <option value="16">16 per page</option>
-                  <option value="24">24 per page</option>
-                </select>
-              </div>
-            </div>
+              {this.state.pictures}
           </div>
         </div>
       </div>

@@ -1,4 +1,12 @@
 // =====================
 // Component - Products 
 // =====================
+.c-products {
+	[class^="o-col--"] {
+		display: flex;
+	}
+}
 
+.c-products--thumb {
+	text-align: center;
+}
