@@ -61,26 +61,46 @@ export default class ProductList extends React.Component {
 
         this.setState({data: data, pageCount: Math.ceil(this.state.totalPages / this.state.pageSize)});
 
-        let pictures = data.map((pic, index) => {
-
-          let startCount = index + this.state.offset;
-          let endCount = parseInt(this.props.pageSize) + this.state.offset;
-
-          console.log(startCount);
-          console.log(endCount);
-          if(startCount < endCount) {
-            return (
-              <div className="o-col--3" key={pic.id}>
-                <div className="c-products--thumb">
-                  <div>{pic.id}</div>
-                  <img className="img-responsive" src={pic.product_image} />
-                </div>
+        let startCount = this.state.offset;
+        let endCount = parseInt(this.props.pageSize) + this.state.offset;
+        
+        let pictures = [];
+        
+        for(let i = startCount; i < endCount; i++) {
+          console.log(data[i]);
+          
+          pictures.push(
+            <div className="o-col--3" key={data[i].id}>
+              <div className="c-products--thumb">
+                <div>{data[i].id}</div>
+                <img className="img-responsive" src={data[i].product_image} />
               </div>
-            )
-          }
+            </div>
+          );
 
-        })
-      this.setState({pictures: pictures});
+          this.setState({pictures: pictures});
+        }
+
+        // let pictures = data.map((pic, index) => {
+
+        //   let startCount = index + this.state.offset;
+        //   let endCount = parseInt(this.props.pageSize) + this.state.offset;
+
+        //   console.log(startCount);
+        //   console.log(endCount);
+        //   if(startCount < endCount) {
+        //     return (
+        //       <div className="o-col--3" key={pic.id}>
+        //         <div className="c-products--thumb">
+        //           <div>{pic.id}</div>
+        //           <img className="img-responsive" src={pic.product_image} />
+        //         </div>
+        //       </div>
+        //     )
+        //   }
+
+        // })
+      // this.setState({pictures: pictures});
     });
   }
 
