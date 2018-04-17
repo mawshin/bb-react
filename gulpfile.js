@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 const nodemon = require('gulp-nodemon');
-const plumber = require('gulp-plumber');
 const livereload = require('gulp-livereload');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
@@ -26,7 +25,7 @@ gulp.task('app', () => {
     uri: 'http://localhost:3000/dashboard'
   };
 
-  return gulp.src('./')
+  gulp.src('./')
   .pipe(open(options));
 });
 
