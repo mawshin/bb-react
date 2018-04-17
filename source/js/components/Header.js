@@ -3,19 +3,18 @@ import React from 'react';
 import { BrowserRouter, HashRouter, Route, Router, Switch, Link } from 'react-router-dom'
 
 import classnames from 'classnames/bind';
-
-// import moment from 'moment';
+import ProductList from '../components/ProductList';
 
 // Using CSS Modules so we assign the styles to a variable
 import s from '../../css/dashboard.scss';
 const cx = classnames.bind(s);
 
 export default class Header extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
 
     this.state = {
-      
+      pageSize: '8'
     }
   }
 
@@ -27,8 +26,8 @@ export default class Header extends React.Component {
   componentDidMount(){
   }
 
-  _sampleFunction = () => {
-
+  _setPageSize = (event) => {
+    this.setState({pageSize: event.target.value});
   }
 
   render() {
@@ -48,12 +47,17 @@ export default class Header extends React.Component {
             </div>
             <div className="o-col--6">
               <div className="u-text--right">
-                <select>
-                  <option value="8">8 per page</option>
+                <select onChange={this._setPageSize.bind(this)}>
+                  <option defaultValue value="8">8 per page</option>
                   <option value="16">16 per page</option>
                   <option value="24">24 per page</option>
                 </select>
               </div>
+            </div>
+          </div>
+          <div className="o-row">
+            <div className="o-col--12">
+              <ProductList pageSize={this.state.pageSize} />
             </div>
           </div>
         </div>

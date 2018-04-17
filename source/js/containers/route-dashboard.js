@@ -15,8 +15,7 @@ import s from '../../css/dashboard.scss';
 const cx = classnames.bind(s);
 
 import HeaderBar from '../components/Header';
-import Pagination from '../components/Pagination';
-import ProductList from '../components/ProductList';
+
 
 ////
 
@@ -42,8 +41,7 @@ class PageDashboard extends Component {
     return (
       <div className={cx('page')}>
         <HeaderBar/>
-        <ProductList/>
-        <Pagination/>
+        
         <div className={cx('clear')}></div>
       </div>
     )

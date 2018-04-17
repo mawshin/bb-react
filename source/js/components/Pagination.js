@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 
-
-class Pagination extends Component {
-
+export default class Pagination extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -99,5 +97,3 @@ class Pagination extends Component {
     );
   }
 }
-
-export default Pagination;
