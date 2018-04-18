@@ -117,11 +117,6 @@ export default class ProductList extends React.Component {
           </div>
         </div>
       </div>
-
-      /*https://stackoverflow.com/questions/46426078/reactjs-passing-state-value-from-one-component-to-another?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
-      https://www.peterbe.com/plog/onchange-in-reactjs
-      https://thinkster.io/tutorials/react-change-state-from-input
-      */
     );
   }
 }
