@@ -71,9 +71,17 @@ export default class ProductList extends React.Component {
           
           pictures.push(
             <div className="o-col--3" key={data[i].id}>
-              <div className="c-products--thumb">
-                <div>{data[i].id}</div>
-                <img className="img-responsive" src={data[i].product_image} />
+              <div className="c-products--card">
+                <div className="c-products--thumb">
+                  <div>{data[i].id}</div>
+                  <img className="img-responsive" src={data[i].product_image} />
+                </div>
+                <hr />
+                <div className="c-products--details">
+                  <div className="c-products--details__title">{data[i].product_name}</div>
+                  <div className="c-products--details__desc">{data[i].description}</div>
+                  <div className="c-products--details__price">{data[i].price}</div>
+                </div>
               </div>
             </div>
           );
@@ -110,11 +118,10 @@ export default class ProductList extends React.Component {
       
       <div className="c-products">
         <div className="o-container">
-          <div className="o-row">
+          <div className="o-row o-flex">
               {this.state.pictures}
           </div>
           <div className="o-row">
-          {this.state.offset}
             <ReactPaginate previousLabel={"previous"}
                            nextLabel={"next"}
                            breakLabel={<a href="">...</a>}

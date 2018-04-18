@@ -16,28 +16,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as appActions from '../actions/app';
 
-//import PrivateRoute from './PrivateRoute';
-
 import PageIndex from './route-index';
 import PageDashboard from './route-dashboard';
-
-const isAuthenticated = () => true;
-
-//const PRIVATE_ROOT = '/private';
-const PUBLIC_ROOT = '/login';
-
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { isPrivate } = component;
-  if (isAuthenticated()) {
-      return <Route { ...props } component={ component } />;
-  } else {
-    if (isPrivate === true) {
-      return <Redirect to={ PUBLIC_ROOT } />;
-    }else {
-      return <Route { ...props } component={ component } />;
-    }
-  }
-};
 
 const EmptyLayout = ({component: Component, ...rest}) => {
   return (
@@ -47,16 +27,6 @@ const EmptyLayout = ({component: Component, ...rest}) => {
       </div>
     )} />
   )
-};
-
-const PortalLayout = ({component: Component, authed, ...rest}) => {
-      return (
-        <Route {...rest} render={props => (
-          <div className="uiWrapper">
-            <Component {...props} />
-          </div>
-        )} />
-      )
 };
 
 class App extends Component {
