@@ -59,7 +59,7 @@ export default class ProductList extends React.Component {
       }).then(data => {
         this.setState({totalPages: Object.keys(data).length});
 
-        this.setState({data: data, pageCount: Math.ceil(this.state.totalPages / this.state.pageSize)});
+        this.setState({data: data, pageCount: Math.ceil(this.state.totalPages / this.props.pageSize)});
 
         let startCount = this.state.offset;
         let endCount = parseInt(this.props.pageSize) + this.state.offset;
