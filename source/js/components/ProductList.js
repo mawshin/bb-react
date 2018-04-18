@@ -4,8 +4,6 @@ import { BrowserRouter, HashRouter, Route, Router, Switch, Link } from 'react-ro
 
 import classnames from 'classnames/bind';
 
-// import Pagination from '../components/Pagination';
-
 import ReactPaginate from 'react-paginate';
 
 // Using CSS Modules so we assign the styles to a variable
@@ -73,7 +71,6 @@ export default class ProductList extends React.Component {
             <div className="o-col--3" key={data[i].id}>
               <div className="c-products--card">
                 <div className="c-products--thumb">
-                  <div>{data[i].id}</div>
                   <img className="img-responsive" src={data[i].product_image} />
                 </div>
                 <hr />
@@ -89,26 +86,6 @@ export default class ProductList extends React.Component {
           this.setState({pictures: pictures});
         }
 
-        // let pictures = data.map((pic, index) => {
-
-        //   let startCount = index + this.state.offset;
-        //   let endCount = parseInt(this.props.pageSize) + this.state.offset;
-
-        //   console.log(startCount);
-        //   console.log(endCount);
-        //   if(startCount < endCount) {
-        //     return (
-        //       <div className="o-col--3" key={pic.id}>
-        //         <div className="c-products--thumb">
-        //           <div>{pic.id}</div>
-        //           <img className="img-responsive" src={pic.product_image} />
-        //         </div>
-        //       </div>
-        //     )
-        //   }
-
-        // })
-      // this.setState({pictures: pictures});
     });
   }
 
@@ -122,17 +99,21 @@ export default class ProductList extends React.Component {
               {this.state.pictures}
           </div>
           <div className="o-row">
-            <ReactPaginate previousLabel={"previous"}
-                           nextLabel={"next"}
-                           breakLabel={<a href="">...</a>}
-                           breakClassName={"break-me"}
-                           pageCount={this.state.pageCount}
-                           marginPagesDisplayed={2}
-                           pageRangeDisplayed={5}
-                           onPageChange={this._handlePageClick}
-                           containerClassName={"pagination"}
-                           subContainerClassName={"pages pagination"}
-                           activeClassName={"active"} />
+            <div className="o-col--12">
+              <div className="u-clearfix">
+                <ReactPaginate previousLabel={"< Previous page"}
+                               nextLabel={"Next page >"}
+                               breakLabel={<a href="">...</a>}
+                               breakClassName={"break-me"}
+                               pageCount={this.state.pageCount}
+                               marginPagesDisplayed={2}
+                               pageRangeDisplayed={5}
+                               onPageChange={this._handlePageClick}
+                               containerClassName={"pagination"}
+                               subContainerClassName={"pages pagination"}
+                               activeClassName={"active"} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
