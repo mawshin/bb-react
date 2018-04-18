@@ -14,7 +14,8 @@ export default class Header extends React.Component {
     super(props);
 
     this.state = {
-      pageSize: '8'
+      pageSize: '8',
+      productSize: '24'
     }
   }
 
@@ -30,6 +31,11 @@ export default class Header extends React.Component {
     this.setState({pageSize: event.target.value});
   }
 
+  productSize = (val) => {
+      // do not forget to bind getData in constructor
+      this.setState({productSize: val});
+  }
+
   render() {
 
     return (
@@ -43,7 +49,7 @@ export default class Header extends React.Component {
 
           <div className="o-row">
             <div className="o-col--6">
-              24 products
+              {this.state.productSize} products
             </div>
             <div className="o-col--6">
               <div className="u-text--right">
@@ -57,7 +63,7 @@ export default class Header extends React.Component {
           </div>
           <div className="o-row">
             <div className="o-col--12">
-              <ProductList pageSize={this.state.pageSize} />
+              <ProductList pageSize={this.state.pageSize} productSize={this.productSize} />
             </div>
           </div>
         </div>

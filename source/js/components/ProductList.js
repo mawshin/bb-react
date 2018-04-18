@@ -42,9 +42,6 @@ export default class ProductList extends React.Component {
     let selected = data.selected;
     let offset = Math.ceil(selected * this.props.pageSize);
 
-    console.log(selected);
-    console.log(offset);
-
     this.setState({offset: offset}, () => {
       this._getProductsFunction();
     });
@@ -57,6 +54,8 @@ export default class ProductList extends React.Component {
       }).then(data => {
         this.setState({totalPages: Object.keys(data).length});
 
+        this.props.productSize(Object.keys(data).length);
+
         this.setState({data: data, pageCount: Math.ceil(this.state.totalPages / this.props.pageSize)});
 
         let startCount = this.state.offset;
@@ -65,7 +64,6 @@ export default class ProductList extends React.Component {
         let pictures = [];
         
         for(let i = startCount; i < endCount; i++) {
-          console.log(data[i]);
           
           pictures.push(
             <div className="o-col--3" key={data[i].id}>
