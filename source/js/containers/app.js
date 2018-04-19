@@ -3,8 +3,6 @@ import { BrowserRouter, HashRouter, Route, Router, Switch, Redirect, Link } from
 
 import axios from 'axios';
 
-//import '../../scss/commons.scss';
-
 import classnames from 'classnames/bind';
 
 // Using CSS Modules so we assign the styles to a variable

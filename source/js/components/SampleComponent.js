@@ -4,8 +4,6 @@ import { BrowserRouter, HashRouter, Route, Router, Switch, Link } from 'react-ro
 
 import classnames from 'classnames/bind';
 
-// import moment from 'moment';
-
 // Using CSS Modules so we assign the styles to a variable
 import s from '../../css/dashboard.scss';
 const cx = classnames.bind(s);
