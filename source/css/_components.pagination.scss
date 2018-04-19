@@ -20,6 +20,10 @@
 		&.active {
 			color: $grey;
 		}
+
+		a {
+			cursor: pointer;
+		}
 	}
 
 	.previous {

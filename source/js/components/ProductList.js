@@ -101,7 +101,7 @@ export default class ProductList extends React.Component {
               <div className="u-clearfix">
                 <ReactPaginate previousLabel={"< Previous page"}
                                nextLabel={"Next page >"}
-                               breakLabel={<a href="">...</a>}
+                               breakLabel={"..."}
                                breakClassName={"break-me"}
                                pageCount={this.state.pageCount}
                                marginPagesDisplayed={2}
