@@ -58,7 +58,7 @@
     "gulp-nodemon": "^2.0.2",
     "gulp-open": "^3.0.1",
     "mocha": "^4.0.1",
-    "node-sass": "^4.7.2",
+    "node-sass": "^7.0.0",
     "nyc": "^10.0.0",
     "sass-loader": "^6.0.7",
     "supertest": "^2.0.0",
