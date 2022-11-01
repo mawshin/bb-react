@@ -53,7 +53,7 @@
     "chai": "^3.5.0",
     "clean-webpack-plugin": "^0.1.18",
     "debug": "^2.2.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-livereload": "^3.8.0",
     "gulp-nodemon": "^2.0.2",
     "gulp-open": "^3.0.1",
